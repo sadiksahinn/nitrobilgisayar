@@ -1,12 +1,1 @@
-import { areas, problems, services, site } from "@/lib/data";
-import type { MetadataRoute } from "next";
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/hizmetler", "/bolgeler", "/sorunlar", "/hakkimizda", "/iletisim"];
-  return [
-    ...staticPages.map((url) => ({ url: `${site.url}${url}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: url === "" ? 1 : 0.8 })),
-    ...services.map((s) => ({ url: `${site.url}/hizmetler/${s.slug}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.9 })),
-    ...areas.map((a) => ({ url: `${site.url}/bolgeler/${a.slug}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.85 })),
-    ...problems.map((p) => ({ url: `${site.url}/sorunlar/${p.slug}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.85 })),
-  ];
-}
+import{areas,problems,services,site}from"@/lib/data";import type{MetadataRoute}from"next";export default function sitemap():MetadataRoute.Sitemap{const staticPages=["","/hizmetler","/bolgeler","/sorunlar","/hakkimizda","/iletisim"];return[...staticPages.map(url=>({url:`${site.url}${url}`,lastModified:new Date(),changeFrequency:"weekly" as const,priority:url===""?1:.8})),...services.map(s=>({url:`${site.url}/hizmetler/${s.slug}`,lastModified:new Date(),changeFrequency:"weekly" as const,priority:.9})),...areas.map(a=>({url:`${site.url}/bolgeler/${a.slug}`,lastModified:new Date(),changeFrequency:"weekly" as const,priority:.85})),...problems.map(p=>({url:`${site.url}/sorunlar/${p.slug}`,lastModified:new Date(),changeFrequency:"weekly" as const,priority:.85}))]}
