@@ -1,0 +1,23 @@
+import Image from "next/image";
+
+export const metadata = {
+  title: "Hakkımızda",
+  description: "Nitro Bilgisayar 2007’den beri Ankara Etimesgut Elvankent’te aynı adreste bilgisayar teknik servis hizmeti verir.",
+};
+
+export default function HakkimizdaPage() {
+  return (
+    <main className="bg-white px-5 pb-20 pt-36">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
+        <div>
+          <p className="mb-3 text-sm font-black uppercase tracking-[.25em] text-zinc-500">Nitro Bilgisayar</p>
+          <h1 className="text-6xl font-black leading-[.9] tracking-[-0.06em] md:text-8xl">2007’den beri aynı adreste.</h1>
+          <p className="mt-7 max-w-2xl text-xl font-semibold leading-8 text-zinc-600">Nitro Bilgisayar, Ankara Etimesgut Elvankent’te 19 yıldır bilgisayar teknik servis hizmeti veren gerçek bir servis noktasıdır.</p>
+        </div>
+        <div className="overflow-hidden rounded-[3rem]">
+          <Image src="/images/magaza.jpeg" alt="Nitro Bilgisayar mağaza" width={1000} height={900} className="h-[620px] w-full object-cover" />
+        </div>
+      </div>
+    </main>
+  );
+}

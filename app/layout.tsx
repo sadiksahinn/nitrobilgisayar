@@ -1,0 +1,59 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { site } from "@/lib/data";
+import Header from "@/components/Header";
+import MobileDock from "@/components/MobileDock";
+import Footer from "@/components/Footer";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  title: {
+    default: "Ankara Bilgisayar Servisi | Nitro Bilgisayar",
+    template: "%s | Nitro Bilgisayar",
+  },
+  description:
+    "Nitro Bilgisayar, Ankara Etimesgut Elvankent’te 19 yıldır aynı adreste laptop tamiri, bilgisayar tamiri, veri kurtarma ve SSD yükseltme hizmeti verir.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Nitro Bilgisayar | Ankara Bilgisayar Servisi",
+    description: "19 yıldır aynı adreste güvenle hizmet veren bilgisayar servisi.",
+    url: site.url,
+    siteName: "Nitro Bilgisayar",
+    locale: "tr_TR",
+    type: "website",
+  },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const localBusiness = {
+    "@context": "https://schema.org",
+    "@type": "ComputerRepair",
+    name: site.name,
+    url: site.url,
+    telephone: [site.phone, site.mobile],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Atakent Mahallesi 1514. Cadde 85/D",
+      addressLocality: "Etimesgut",
+      addressRegion: "Ankara",
+      addressCountry: "TR",
+    },
+    areaServed: "Ankara",
+    description: "Ankara Etimesgut Elvankent’te 19 yıldır aynı adreste bilgisayar teknik servis hizmeti.",
+  };
+
+  return (
+    <html lang="tr" className={inter.variable}>
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
+        <Header />
+        {children}
+        <Footer />
+        <MobileDock />
+      </body>
+    </html>
+  );
+}
