@@ -9,7 +9,35 @@ export const site = {
   maps: "https://www.google.com/maps/search/?api=1&query=Atakent%20Mahallesi%201514.%20Cadde%2085%2FD%20Elvankent%20Etimesgut%20Ankara",
 };
 
-export const services = [
+export type Service = {
+  title: string;
+  slug: string;
+  kicker: string;
+  description: string;
+  bullets: string[];
+};
+
+export type Area = {
+  name: string;
+  title: string;
+  slug: string;
+  description: string;
+};
+
+export type ProblemFaq = {
+  q: string;
+  a: string;
+};
+
+export type Problem = {
+  title: string;
+  slug: string;
+  description: string;
+  content: string[];
+  faq: ProblemFaq[];
+};
+
+export const services: Service[] = [
   {
     title: "Laptop Tamiri Ankara",
     slug: "laptop-tamiri-ankara",
@@ -72,7 +100,7 @@ const tr = (s: string) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 
-export const areas = [
+export const areas: Area[] = [
   "Eryaman",
   "Etimesgut",
   "Elvankent",
@@ -90,7 +118,7 @@ export const areas = [
   description: `${name} bilgisayar servisi arayanlar için Nitro Bilgisayar, Elvankent Etimesgut’ta 19 yıldır aynı adreste hizmet verir.`,
 }));
 
-const problemList = [
+const problemList: [string, string, string][] = [
   ["Bilgisayar Açılmıyor", "bilgisayar-acilmiyor", "Açılmayan bilgisayarlarda güç, disk, RAM ve anakart kaynaklı sorunların teknik kontrolü."],
   ["Laptop Açılmıyor", "laptop-acilmiyor", "Laptop açılmıyorsa batarya, adaptör, anakart, güç devresi ve disk kaynaklı arızalar incelenir."],
   ["Laptop Şarj Olmuyor", "laptop-sarj-olmuyor", "Adaptör, batarya, şarj soketi ve anakart güç hattı kaynaklı şarj sorunları kontrol edilir."],
@@ -143,7 +171,7 @@ const problemList = [
   ["Laptop Menteşe Kırıldı", "laptop-mentese-kirildi", "Menteşe kırıkları ekran kasasına zarar vermeden teknik servis müdahalesi gerektirir."],
 ];
 
-export const problems = problemList.map(([title, slug, description]) => ({
+export const problems: Problem[] = problemList.map(([title, slug, description]) => ({
   title,
   slug,
   description,
