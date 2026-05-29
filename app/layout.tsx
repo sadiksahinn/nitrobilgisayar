@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Nitro Bilgisayar | Ankara Bilgisayar Servisi",
     description:
@@ -135,38 +140,6 @@ export default function RootLayout({
         acceptedAnswer: {
           "@type": "Answer",
           text: "Arızanın durumuna göre laptop tamiri aynı gün içinde veya birkaç iş günü içerisinde tamamlanabilir. Önce arıza tespiti yapılır ve kullanıcı bilgilendirilir.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "SSD yükseltme bilgisayarı hızlandırır mı?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Evet. Mekanik diskten SSD'ye geçiş, bilgisayarın açılış süresini, programların çalışma hızını ve genel performansı ciddi şekilde iyileştirebilir.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Veri kurtarma mümkün mü?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Veri kurtarma ihtimali diskin durumuna, hasar seviyesine ve cihazın sonrasında kullanılıp kullanılmadığına bağlıdır. Nitro Bilgisayar’da ön inceleme yapılır.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Laptop neden çok ısınır?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Laptoplarda ısınma genellikle fan ve hava kanallarının tozlanması, termal macunun özelliğini kaybetmesi veya soğutma sisteminin verimsiz çalışmasından kaynaklanır.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Bilgisayar açılmıyorsa ne yapılmalı?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Bilgisayar açılmıyorsa güç kablosu, adaptör ve priz kontrol edilebilir. Sorun devam ederse veri kaybı veya ek arıza riskine karşı teknik servis kontrolü önerilir.",
         },
       },
     ],
